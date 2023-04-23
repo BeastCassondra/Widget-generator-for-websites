@@ -1,0 +1,45 @@
+echo "# Widget-generator-for-websites" >> README.md
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/BeastCassondra/Widget-generator-for-websites.git
+git push -u origin master
+# Import required libraries
+from tkinter import *
+from tkinter import messagebox
+
+# Define the widget generator function
+def generate_widget():
+    # Get the user input
+    widget_name = widget_name_entry.get()
+    widget_color = widget_color_entry.get()
+
+    # Generate the widget
+    widget = Label(root, text="I am a " + widget_name + " widget", bg=widget_color, fg="white")
+    widget.pack(pady=10)
+
+    # Show a success message
+    messagebox.showinfo("Success", "Widget generated successfully!")
+
+# Create the main window
+root = Tk()
+root.title("Widget Generator")
+
+# Create the widget name input
+widget_name_label = Label(root, text="Enter widget name:")
+widget_name_label.pack()
+widget_name_entry = Entry(root)
+widget_name_entry.pack()
+
+# Create the widget color input
+widget_color_label = Label(root, text="Enter widget color:")
+widget_color_label.pack()
+widget_color_entry = Entry(root)
+widget_color_entry.pack()
+
+# Create the generate button
+generate_button = Button(root, text="Generate Widget", command=generate_widget)
+generate_button.pack(pady=10)
+
+# Run the main loop
+root.mainloop()
